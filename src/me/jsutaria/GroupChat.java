@@ -1,5 +1,6 @@
 package me.jsutaria;
 
+import java.util.Arrays;
 import java.util.List;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
@@ -54,14 +55,51 @@ public class GroupChat extends JavaPlugin {
 			if (args[0].equalsIgnoreCase("new")) {
 				if (isAnOwner(p.getName())) {
 					p.sendMessage("Error, you already own a group");
+				} else if (!newName(args[1])){
+					p.sendMessage("Error, that name is already taken");
+				} else if (invalidName(args[1])) {
+					p.sendMessage("Error, that name is invalid");
 				} else {
-					
+					createNewGroup(args[1], p.getName());
 				}
 			}
 		}
 		return true;
 	}
 	
+	public void createNewGroup(String name, String plyr) {
+		getConfig().createSection(name);
+		getConfig().createSection(name + ".users");
+		List<String> userList = this.getConfig().getStringList(name + ".users");
+		userList.add(plyr.toLowerCase());
+		getConfig().set(name + ".users", userList);
+		getConfig().createSection(name + ".invites");
+		getConfig().createSection(name + ".settings");
+		getConfig().createSection(name + ".settings.tagcolor");
+		getConfig().createSection(name + ".settings.chatcolor");
+
+
+	}
+	public boolean invalidName(String name) {
+		boolean bool = true;
+		List<String> invalids = Arrays.asList("new", "set", "add", "delete", "kick", "join", "help");
+		for (String key : invalids) {
+			if (key.equalsIgnoreCase(name)) {
+				bool = false;
+			}
+		}
+		return bool;
+	}
+	
+	public boolean newName(String name) {
+		boolean bool = true;
+		for (String key : this.getConfig().getKeys(false)) {
+			if (key.equalsIgnoreCase(name)) {
+				bool = false;
+			}
+		}
+		return bool;
+	}
 	
 	public boolean isAnOwner(String plyr) {
 		boolean bool = false;
