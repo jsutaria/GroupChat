@@ -79,7 +79,11 @@ public class GroupChat extends JavaPlugin {
 		getConfig().set(name + ".settings.tagcolor", "WHITE");
 		getConfig().createSection(name + ".settings.chatcolor");
 		getConfig().set(name + ".settings.tagcolor", "WHITE");
+<<<<<<< HEAD
 		plyr.sendMessage("Group with name " + name + "successfully created");
+=======
+		plyr.sendMessage("Group with name " + name + "successfully created")
+>>>>>>> origin/master
 		
 
 
