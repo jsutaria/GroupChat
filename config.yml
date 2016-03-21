@@ -1,0 +1,18 @@
+default:
+    users:
+        - lordusan
+        - lord_walrus
+    invites:
+        - fully_charged
+    settings:
+        tagcolor: blue
+        chatcolor: red
+second:
+    users:
+        - ladycassandra
+        - lordusan
+    invites:
+        - cooey3
+    settings:
+        tagcolor: orange
+        chatcolor: yellow

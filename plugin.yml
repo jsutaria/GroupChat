@@ -1,0 +1,10 @@
+name: GroupChat
+main: me.jsutaria.GroupChat
+version: 1.0
+commands:
+    g:
+        description: GroupChat
+        usage: /<command>
+    groupchat:
+        description: GroupChats
+        usage: /<command>
