@@ -60,23 +60,27 @@ public class GroupChat extends JavaPlugin {
 				} else if (invalidName(args[1])) {
 					p.sendMessage("Error, that name is invalid");
 				} else {
-					createNewGroup(args[1], p.getName());
+					createNewGroup(args[1], p);
 				}
 			}
 		}
 		return true;
 	}
 	
-	public void createNewGroup(String name, String plyr) {
+	public void createNewGroup(String name, Player plyr) {
 		getConfig().createSection(name);
 		getConfig().createSection(name + ".users");
 		List<String> userList = this.getConfig().getStringList(name + ".users");
-		userList.add(plyr.toLowerCase());
+		userList.add(plyr.getName().toLowerCase());
 		getConfig().set(name + ".users", userList);
 		getConfig().createSection(name + ".invites");
 		getConfig().createSection(name + ".settings");
 		getConfig().createSection(name + ".settings.tagcolor");
+		getConfig().set(name + ".settings.tagcolor", "WHITE");
 		getConfig().createSection(name + ".settings.chatcolor");
+		getConfig().set(name + ".settings.tagcolor", "WHITE");
+		plyr.sendMessage("Group with name " + name + "successfully created");
+		
 
 
 	}
@@ -177,6 +181,5 @@ if (args[0].equalsIgnoreCase("add")) {
 }
 return true;
 */
-
 
 
