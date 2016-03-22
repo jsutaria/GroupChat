@@ -1,18 +1,21 @@
 default:
-    users:
-        - lordusan
-        - lord_walrus
-    invites:
-        - fully_charged
-    settings:
-        tagcolor: blue
-        chatcolor: red
+  users:
+  - lordusan
+  - lord_walrus
+  - silver01
+  - xmiku
+  - klutchdecals
+  invites:
+  - fully_charged
+  settings:
+    tagcolor: BLUE
+    chatcolor: RED
 second:
-    users:
-        - ladycassandra
-        - lordusan
-    invites:
-        - cooey3
-    settings:
-        tagcolor: orange
-        chatcolor: yellow
+  users:
+  - ladycassandra
+  - lordusan
+  invites:
+  - cooey3
+  settings:
+    tagcolor: AQUA
+    chatcolor: YELLOW
